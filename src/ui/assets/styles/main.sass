@@ -1,0 +1,57 @@
+@import 'tailwindcss/base'
+@import 'tailwindcss/components'
+@import 'tailwindcss/utilities'
+
+@import ./_variables.sass
+@import ./_breakpoints.sass
+@import ./animations.sass
+
+body,
+div,
+div::before,
+div::after
+  box-sizing: border-box
+  margin: 0
+  font-weight: normal
+
+body
+  min-height: 100vh
+  color: var(--text-color)
+  background-color: rgb(242,161,34)
+  background: linear-gradient(45deg, rgba(242,161,34,1) 0%, rgba(227,28,19,1) 50%)
+  transition: color 0.5s, background-color 0.5s, background 0.5s
+  font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif
+  font-size: 16px
+  text-rendering: optimizeLegibility
+  -webkit-font-smoothing: antialiased
+  -moz-osx-font-smoothing: grayscale
+
+#app
+  display: flex
+  flex-direction: column
+  min-height: 100vh
+  main
+    flex: 1
+
+a
+  color: var(--accent-color)
+  text-decoration: none
+
+.container, .bigger-container, .full-container-with-padding
+  padding: 15px 20px
+  margin: 0px
+  margin-left: auto
+  margin-right: auto
+.container
+  max-width: 1200px
+  min-width: 320px
+.bigger-container
+  max-width: 1500px
+  min-width: 320px
+.full-container
+  padding: 0
+  max-width: 100%
+  min-width: 320px
+.full-container-with-padding
+  max-width: 100%
+  min-width: 320px
