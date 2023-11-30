@@ -1,0 +1,50 @@
+// < pokeball open/close animation>
+@keyframes slideUp
+  from
+    transform: translateY(0)
+  to
+    transform: translateY(-60vh)
+
+@keyframes slideUpReverse
+  from
+    transform: translateY(-60vh)
+  to
+    transform: translateY(0)
+
+@keyframes slideDown
+  from
+    transform: translateY(0)
+  to
+    transform: translateY(60vh)
+
+@keyframes slideDownReverse
+  from
+    transform: translateY(60vh)
+  to
+    transform: translateY(0)
+
+.loading-top
+  &.open
+    animation: slideUp .6s forwards
+  &.close
+    animation: slideUpReverse .2s forwards
+
+.loading-bottom
+  &.open
+    animation: slideDown .6s forwards
+  &.close
+    animation: slideDownReverse .2s forwards
+// </ pokeball open/close animation>
+
+// < pokeball inner circle animation>
+@keyframes pulse
+  0%
+    background-color: white
+  50%
+    background-color: #f95149
+  100%
+    background-color: white
+
+.pokeball-inner-circle
+  animation: pulse 1.5s infinite
+// </ pokeball inner circle animation>
