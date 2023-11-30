@@ -6,7 +6,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-## [0.0.1] - 2023-11-30
+## [0.5.0] - 2023-11-30
+### Added
+- Added pokemon quiz on home view (first generation only).
+
+## [0.1.0] - 2023-11-30
 ### Added
 - Implement base hexagonal architecture structure.
 - Added new utils (httpApi for API calls, urlBuilder).
