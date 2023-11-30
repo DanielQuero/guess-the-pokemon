@@ -4,13 +4,8 @@ import { GetRandomPokemon } from '@/domain/usecases/pokemon/getRandomPokemon.use
 import { POKEMON_TYPES } from '@/application/types/PokemonTypes'
 import type { PokemonModel } from '@/domain/models/pokemon/pokemon.model'
 import { GetOthersRandomPokemon } from '@/domain/usecases/pokemon/getOthersRandomPokemon.usecase'
-import LoadingOverlay from '@/ui/components/loadingOverlay/LoadingOverlay.vue'
 
-@Component({
-	components: {
-		LoadingOverlay,
-	},
-})
+@Component
 export default class HomeView extends Vue {
 	@inject(POKEMON_TYPES.GET_RANDOM_POKEMON) private readonly getRandomPokemon!: GetRandomPokemon
 	@inject(POKEMON_TYPES.GET_OTHERS_RANDOM_POKEMON) private readonly getOthersRandomPokemon!: GetOthersRandomPokemon
