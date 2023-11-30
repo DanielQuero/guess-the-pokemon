@@ -12,4 +12,6 @@ export default class HomeView extends Vue {
 </script>
 
 <style lang="sass">
+main
+  max-width: 1600px
 </style>
