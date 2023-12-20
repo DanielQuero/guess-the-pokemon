@@ -1,5 +1,5 @@
 <template lang="pug">
-main
+main.container.2xl.text-xs(class="md:text-sm lg:text-base")
   RouterView
 </template>
 
