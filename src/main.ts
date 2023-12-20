@@ -7,4 +7,12 @@ import { DiContainer } from './diContainer'
 
 const diContainer = new DiContainer()
 
-createApp(App).use(router).use(diContainer).mount('#app')
+// < Pinia >
+import { createPinia } from 'pinia'
+import piniaPluginPersistedstate from 'pinia-plugin-persistedstate'
+
+const pinia = createPinia()
+pinia.use(piniaPluginPersistedstate)
+// </ Pinia >
+
+createApp(App).use(pinia).use(router).use(diContainer).mount('#app')
