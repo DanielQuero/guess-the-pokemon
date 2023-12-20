@@ -7,6 +7,8 @@
 @import ./animations.sass
 @import ./extraTailwind.sass
 
+@import url(https://db.onlinewebfonts.com/c/900f8add35323c44ee840c611ed9a7a5?family=Pokemon+Classic+Regular)
+
 body,
 div,
 div::before,
@@ -20,11 +22,8 @@ body
   color: var(--text-color)
   background-color: rgb(242,161,34)
   background: var(--background-color)
-  font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif
-  font-size: 16px
+  font-family: "Pokemon Classic Regular", Roboto, sans-serif
   text-rendering: optimizeLegibility
-  -webkit-font-smoothing: antialiased
-  -moz-osx-font-smoothing: grayscale
 
 #app
   display: flex
@@ -36,22 +35,3 @@ body
 a
   color: var(--accent-color)
   text-decoration: none
-
-.container, .bigger-container, .full-container-with-padding
-  padding: 15px 20px
-  margin: 0px
-  margin-left: auto
-  margin-right: auto
-.container
-  max-width: 1200px
-  min-width: 320px
-.bigger-container
-  max-width: 1700px
-  min-width: 320px
-.full-container
-  padding: 0
-  max-width: 100%
-  min-width: 320px
-.full-container-with-padding
-  max-width: 100%
-  min-width: 320px
