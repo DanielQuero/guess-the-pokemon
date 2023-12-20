@@ -1,46 +1,47 @@
-# who-is-that-pokemon
+# Guess the pokemon
 
-This template should help get you started developing with Vue 3 in Vite.
+Porject created to try tailwind and use my hexagonal architecture aproach in a front-end project, built with Vue 3, Vite, and TypeScript. Enhanced with Pug and Sass for cleaner code and sleek design. It's a quiz to figure out a pokemon from its shadow, just like when we younger and it appeared on TV.
 
-## Recommended IDE Setup
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+## Demo
 
-## Type Support for `.vue` Imports in TS
+You can see the [DEMO here](https://danielquero.github.io/guess-the-pokemon)
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin) to make the TypeScript language service aware of `.vue` types.
 
-If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has also implemented a [Take Over Mode](https://github.com/johnsoncodehk/volar/discussions/471#discussioncomment-1361669) that is more performant. You can enable it by the following steps:
+## Folder Structure
 
-1. Disable the built-in TypeScript Extension
-    1) Run `Extensions: Show Built-in Extensions` from VSCode's command palette
-    2) Find `TypeScript and JavaScript Language Features`, right click and select `Disable (Workspace)`
-2. Reload the VSCode window by running `Developer: Reload Window` from the command palette.
+The application follows an organized folder structure as follows:
 
-## Customize configuration
+- **`public/`**: Public folder containing publicly accessible static files, such as images, icons, and CSS files.
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+- **`src/`**: Main source code folder of the application.
+
+  - **`application/`**: Contains the application logic, including internationalization (`i18n`), alert management (`alertmanager`), data storage (`stores`), and types or symbols for dependency injection (`types`).
+
+  - **`domain/`**: Includes the application's domain layer, which contains core business logic. This includes interfaces (`http` and `repositories`), data models (`models`), and use cases (`usecases`).
+
+  - **`infrastructure/`**: Contains the application's infrastructure, including HTTP communication (`http`), simulations (`mocks`), and data repositories where API calls are made (`repositories`).
+
+  - **`ui/`**: Contains the application's user interface (`UI`), including the application structure (`app`), graphic resources (`assets`), reusable components (`components`), navigation routes (`routes`), and application views (`views`).
+
+  - **`diContainer.ts`**: A specific file used to manage functionality related to dependency injection and inversion of control (IoC).
+
+  - **`main.ts`**: The main entry point of the application, where the Vue application is initialized.
+
 
 ## Project Setup
-
+Install dependencies:
 ```sh
 yarn
 ```
 
 ### Compile and Hot-Reload for Development
-
 ```sh
 yarn dev
 ```
 
-### Type-Check, Compile and Minify for Production
+### Compile and Minify for Production
 
 ```sh
 yarn build
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-yarn lint
 ```
