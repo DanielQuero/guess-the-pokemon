@@ -6,6 +6,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.7.0] - 2023-12-20
+### Added
+- Added pinia library as stateStorage.
+- Added possibility to select generation at home view.
+### Changed
+- Moved quiz to quiz route instead of being at home page.
+
 ## [0.6.0] - 2023-11-30
 ### Added
 - Added pokeball loading overlay.
