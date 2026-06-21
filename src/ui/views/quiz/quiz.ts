@@ -86,7 +86,6 @@ export default class QuizView extends Vue {
 				}, 2000)
 			}
 		} else {
-			this.resetCorrectPokemon.execute()
 			this.showRetry = true
 		}
 
@@ -129,6 +128,13 @@ export default class QuizView extends Vue {
 		return bgClass
 	}
 
+	get correctAnswersNum(): number {
+		return this.pokemonStore.countPokemonIdsCorrect
+	}
+	get totalQuizPokemonNum(): number {
+		return this.pokemonStore.countPokemonIdsTotal
+	}
+
 	get hasAnOptionBeingSelected(): boolean {
 		return Boolean(this.pokemonQuizData.pokemonQuizOptions.find((value: any) => value.selected == true))
 	}
@@ -139,7 +145,8 @@ export default class QuizView extends Vue {
 
 	retryQuiz() {
 		this.pokemonStore.shufflePokemonIds()
-		this.pokemonStore.setPokemonIds(this.pokemonStore.getFullSelectedGenerationsPokemonIds)
+		this.resetCorrectPokemon.execute()
+		this.showCongratsMessage = false
 
 		this.getPokemon()
 	}

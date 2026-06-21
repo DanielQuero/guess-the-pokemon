@@ -14,6 +14,7 @@ export default {
         '3000': '3000ms',
         '4000': '4000ms',
       },
+      // TODO: Add here the other classes at extraTailwind.sass
       width: {
         '150-px': '150px',
         '75-px': '75px',

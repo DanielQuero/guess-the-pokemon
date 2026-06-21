@@ -9,11 +9,11 @@ loading-overlay(:loading="loading")
       .title.flex.items-center.justify-center.self-end.mt-5
         img(class="w-4/5" src="/pokemon.png")
     .order-3.flex.flex-col.items-center(class="md:order-3 md:row-span-1 px-4")
-      .pokemon-name-options.my-4.grid.gap-4.w-full(
-        class="xs:grid-cols-1 md:grid-cols-2 md:my-14"
+      .pokemon-name-options.my-4.grid.gap-3.w-full.grid-cols-2(
+        class="md:my-14 md:gap-4"
         v-if="!loading"
       )
-        button.capitalize.text-black.font-bold.py-1.rounded(
+        button.capitalize.text-black.font-bold.py-3.rounded(
           class="not-hover-on-phones:hover:bg-blue not-hover-on-phones:hover:text-white disabled:pointer-events-none md:py-4"
           :class="getButtonBgColor(pokemonOption)"
           type="button"
@@ -23,16 +23,19 @@ loading-overlay(:loading="loading")
           :disabled="hasAnOptionBeingSelected"
         ) {{ pokemonOption.name }}
       .h-14.w-full
+        .text-center.flex.justify-center.items-center.pb-4
+          span {{ correctAnswersNum }} / {{ totalQuizPokemonNum }}
+          img.ml-3.mt-1(src="/pokeball.png" width="20")
         div(v-show="showCongratsMessage")
           div Congrats!
           div You catch them all!!
         #progress-bar.w-full.h-3.relative.rounded-full.overflow-hidden(v-show="showProgressBar && !showCongratsMessage")
           div(class="w-full h-full bg-gray-200 absolute")
           #bar(ref="waitingForNextPokemonBar" class="transition-all ease-linear duration-2000 h-full bg-green-500 relative w-0")
-        .flex.justify-evenly.items-center.mt-3
-          button(v-show="showRetry" @click="backHome")
+        .flex.justify-evenly.items-center.mt-3(v-show="showRetry | showCongratsMessage")
+          button(@click="backHome")
             img.w-12(src="/icons/back-arrow.svg")
-          button(v-show="showRetry" @click="retryQuiz")
+          button(@click="retryQuiz")
             img.w-12(src="/icons/retry-arrow.svg")
 </template>
 
