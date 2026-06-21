@@ -1,4 +1,4 @@
-import { container } from 'inversify-props'
+import { Container, type interfaces } from 'inversify'
 import { CONFIG_TYPES } from './application/types/ConfigTypes'
 import { POKEMON_TYPES } from './application/types/PokemonTypes'
 import type { IHttpApi } from './domain/http/HttpApi'
@@ -11,6 +11,28 @@ import { SaveCorrectPokemon } from './domain/usecases/pokemon/saveCorrectPokemon
 import { HttpApi } from './infrastructure/http/HttpApi'
 import { UrlBuilder } from './infrastructure/http/UrlBuilder'
 import { PokemonRemoteRepository } from './infrastructure/repositories/pokemon/PokemonRemoteRepository'
+
+export const container = new Container()
+
+export function inject(serviceIdentifier: interfaces.ServiceIdentifier<any>): PropertyDecorator {
+	return function (target: any, propertyKey: string | symbol) {
+		Object.defineProperty(target, propertyKey, {
+			get() {
+				const value = container.get(serviceIdentifier)
+				// Cache resolved dependency directly on the instance to optimize subsequent lookups
+				Object.defineProperty(this, propertyKey, {
+					value,
+					writable: true,
+					enumerable: true,
+					configurable: true,
+				})
+				return value
+			},
+			configurable: true,
+			enumerable: true,
+		})
+	}
+}
 
 export class DiContainer {
 	constructor() {

@@ -1,4 +1,4 @@
-import { inject, injectable } from 'inversify-props'
+import { inject, injectable } from 'inversify'
 import { PokemonRepository } from '@/domain/repositories/pokemonRepository'
 import { CONFIG_TYPES } from '@/application/types/ConfigTypes'
 import type { IHttpApi } from '@/domain/http/HttpApi'
@@ -8,9 +8,10 @@ import { mapPokemonEntityToModel } from './mappers/pokemon.mapper'
 
 @injectable()
 export class PokemonRemoteRepository implements PokemonRepository {
+	@inject(CONFIG_TYPES.HTTP_API) private readonly httpApi!: IHttpApi
 	baseUrl: string
 
-	constructor(@inject(CONFIG_TYPES.HTTP_API) private readonly httpApi: IHttpApi) {
+	constructor() {
 		this.baseUrl = `${import.meta.env.VITE_APP_BASE_URL}/${import.meta.env.VITE_APP_API_PREFIX}/${
 			import.meta.env.VITE_APP_API_VERSION
 		}/pokemon`

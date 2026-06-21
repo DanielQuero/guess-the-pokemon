@@ -8,9 +8,10 @@ import type { HttpParams } from '@/domain/http/HttpParams'
 
 @injectable()
 export class HttpApi implements IHttpApi {
+	@inject(CONFIG_TYPES.URL_BUILDER) private readonly urlBuilder!: IUrlBuilder
 	private readonly axiosInstance: AxiosInstance
 
-	constructor(@inject(CONFIG_TYPES.URL_BUILDER) private readonly urlBuilder: IUrlBuilder) {
+	constructor() {
 		this.axiosInstance = axios.create()
 	}
 

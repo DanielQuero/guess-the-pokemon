@@ -6,6 +6,22 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.8.1] - 2026-06-21
+### Added
+- Added GitHub Actions workflow to build and deploy directly to GitHub Pages.
+
+## [0.8.0] - 2026-06-21
+### Added
+- Added live score tracking and viewport responsiveness improvements.
+### Removed
+- Removed legacy and unused backup view/component files.
+
+## [0.7.1] - 2026-06-21
+### Changed
+- Migrated dependency injection from inversify-props to standard inversify.
+### Fixed
+- Fixed TS1239 parameter decorator compiler error in modern TypeScript.
+
 ## [0.7.0] - 2023-12-20
 ### Added
 - Added pinia library as stateStorage.
