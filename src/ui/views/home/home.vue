@@ -28,5 +28,5 @@ loading-overlay(:loading="loading")
       ) Start Quiz
 </template>
 
-<script lang="ts" src="./home.ts"/>
-<style lang="sass" scoped src="./home.sass"/>
+<script lang="ts" src="./home.ts" />
+<style lang="sass" scoped src="./home.sass" />

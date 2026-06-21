@@ -1,13 +1,15 @@
-import { injectable } from 'inversify'
-import { usePokemonStore } from '@/application/stores/pokemon/pokemon'
+import { inject, injectable } from 'inversify'
+import { POKEMON_TYPES } from '@/application/types/PokemonTypes'
+import type { QuizStateRepository } from '@/domain/repositories/pokemon/quizStateRepository'
 
 @injectable()
 export class ResetCorrectPokemon {
-	constructor() {}
+	constructor(
+		@inject(POKEMON_TYPES.QUIZ_STATE_REPOSITORY)
+		private readonly quizStateRepository: QuizStateRepository,
+	) {}
 
 	async execute(): Promise<void> {
-		const pokemonStore = usePokemonStore()
-
-		pokemonStore.resetPokemonLeft()
+		this.quizStateRepository.resetPokemonLeft()
 	}
 }

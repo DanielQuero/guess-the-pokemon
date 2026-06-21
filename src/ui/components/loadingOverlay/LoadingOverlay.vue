@@ -7,5 +7,5 @@
 slot
 </template>
 
-<script lang="ts" src="./LoadingOverlay.ts"/>
-<style lang="sass" scoped src="./LoadingOverlay.sass"/>
+<script lang="ts" src="./LoadingOverlay.ts" />
+<style lang="sass" scoped src="./LoadingOverlay.sass" />
