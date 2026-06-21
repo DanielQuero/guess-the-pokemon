@@ -1,4 +1,4 @@
-import { injectable } from 'inversify-props'
+import { injectable } from 'inversify'
 import { usePokemonStore } from '@/application/stores/pokemon/pokemon'
 
 interface PokemonGenerationRange {
