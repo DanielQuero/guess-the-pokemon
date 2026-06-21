@@ -6,6 +6,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.8.0] - 2026-06-21
+### Added
+- Added live score tracking and viewport responsiveness improvements.
+### Removed
+- Removed legacy and unused backup view/component files.
+
 ## [0.7.1] - 2026-06-21
 ### Changed
 - Migrated dependency injection from inversify-props to standard inversify.
