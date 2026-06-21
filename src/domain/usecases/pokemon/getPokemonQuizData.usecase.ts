@@ -1,4 +1,4 @@
-import { inject, injectable } from 'inversify-props'
+import { inject, injectable } from 'inversify'
 import { POKEMON_TYPES } from '@/application/types/PokemonTypes'
 import { PokemonRepository } from '@/domain/repositories/pokemonRepository'
 import { usePokemonStore } from '@/application/stores/pokemon/pokemon'
@@ -7,7 +7,9 @@ import type { PokemonModel } from '@/domain/models/pokemon/pokemon.model'
 
 @injectable()
 export class GetPokemonQuizData {
-	constructor(@inject(POKEMON_TYPES.POKEMON_REPOSITORY) private pokemonRepository: PokemonRepository) {}
+	@inject(POKEMON_TYPES.POKEMON_REPOSITORY) private readonly pokemonRepository!: PokemonRepository
+
+	constructor() {}
 
 	async execute(): Promise<PokemonQuizModel> {
 		const pokemonStore = usePokemonStore()

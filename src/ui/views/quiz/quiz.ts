@@ -1,4 +1,4 @@
-import { inject } from 'inversify-props'
+import { inject } from '@/diContainer'
 import { Component, Ref, Vue } from 'vue-facing-decorator'
 import { POKEMON_TYPES } from '@/application/types/PokemonTypes'
 import type { PokemonModel } from '@/domain/models/pokemon/pokemon.model'
