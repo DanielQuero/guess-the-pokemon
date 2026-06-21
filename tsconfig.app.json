@@ -8,6 +8,7 @@
     "emitDecoratorMetadata": true,
     "composite": true,
     "baseUrl": ".",
+    "types": ["vitest/importMeta"],
     "paths": {
       "@/*": ["./src/*"]
     }

@@ -6,6 +6,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.9.0] - 2026-06-21
+### Added
+- Integrated Vitest with happy-dom as the official testing suite runner.
+- Added unplugin-swc to support InversifyJS TypeScript decorator metadata in testing runtime.
+- Implemented global Inversify DI container sandboxing (snapshot/restore) for test isolation.
+- Implemented comprehensive unit, integration, and component test suites covering all domain use cases, the application store, repository adapters, and Vue component views.
+
 ## [0.8.2] - 2026-06-21
 ### Changed
 - Decoupled domain use cases from Pinia state storage.
