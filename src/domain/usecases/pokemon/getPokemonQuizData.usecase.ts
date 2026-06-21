@@ -1,25 +1,27 @@
 import { inject, injectable } from 'inversify'
 import { POKEMON_TYPES } from '@/application/types/PokemonTypes'
 import { PokemonRepository } from '@/domain/repositories/pokemonRepository'
-import { usePokemonStore } from '@/application/stores/pokemon/pokemon'
+import type { QuizStateRepository } from '@/domain/repositories/pokemon/quizStateRepository'
 import type { PokemonOptions, PokemonQuizModel } from '@/domain/models/pokemon/pokemonQuiz.model'
 import type { PokemonModel } from '@/domain/models/pokemon/pokemon.model'
 
 @injectable()
 export class GetPokemonQuizData {
-	@inject(POKEMON_TYPES.POKEMON_REPOSITORY) private readonly pokemonRepository!: PokemonRepository
-
-	constructor() {}
+	constructor(
+		@inject(POKEMON_TYPES.POKEMON_REPOSITORY)
+		private readonly pokemonRepository: PokemonRepository,
+		@inject(POKEMON_TYPES.QUIZ_STATE_REPOSITORY)
+		private readonly quizStateRepository: QuizStateRepository,
+	) {}
 
 	async execute(): Promise<PokemonQuizModel> {
-		const pokemonStore = usePokemonStore()
-		const nextPokemonId = pokemonStore.getNextPokemonId
+		const nextPokemonId = this.quizStateRepository.getNextPokemonId()
 
 		const selectedPokemonData: PokemonModel = await this.pokemonRepository.getPokemon(nextPokemonId)
 
 		const otherPokemonOptions = await this.getPokemonQuizOptions(
 			selectedPokemonData,
-			pokemonStore.getFullSelectedGenerationsPokemonIds,
+			this.quizStateRepository.getFullSelectedGenerationsPokemonIds(),
 		)
 
 		return {

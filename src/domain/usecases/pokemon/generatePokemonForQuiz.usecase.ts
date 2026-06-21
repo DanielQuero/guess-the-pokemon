@@ -1,5 +1,6 @@
-import { injectable } from 'inversify'
-import { usePokemonStore } from '@/application/stores/pokemon/pokemon'
+import { inject, injectable } from 'inversify'
+import { POKEMON_TYPES } from '@/application/types/PokemonTypes'
+import type { QuizStateRepository } from '@/domain/repositories/pokemon/quizStateRepository'
 
 interface PokemonGenerationRange {
 	start: number
@@ -8,17 +9,19 @@ interface PokemonGenerationRange {
 
 @injectable()
 export class GeneratePokemonForQuiz {
-	constructor() {}
+	constructor(
+		@inject(POKEMON_TYPES.QUIZ_STATE_REPOSITORY)
+		private readonly quizStateRepository: QuizStateRepository,
+	) {}
 
 	async execute(pokemonGenerations: number[]): Promise<void> {
-		const pokemonStore = usePokemonStore()
-		pokemonStore.resetAll()
-		pokemonStore.setGenerations(pokemonGenerations)
+		this.quizStateRepository.resetAll()
+		this.quizStateRepository.setGenerations(pokemonGenerations)
 
 		const pokemonIdsList: number[] = this.getPokemonIdsForGenerations(pokemonGenerations)
-		pokemonStore.setFullSelectedGenerationsPokemonIds(pokemonIdsList)
-		pokemonStore.shufflePokemonIds()
-		pokemonStore.setPokemonIds(pokemonStore.fullSelectedGenerationsPokemonIds)
+		this.quizStateRepository.setFullSelectedGenerationsPokemonIds(pokemonIdsList)
+		this.quizStateRepository.shufflePokemonIds()
+		this.quizStateRepository.setPokemonIds(this.quizStateRepository.getFullSelectedGenerationsPokemonIds())
 	}
 
 	POKEMON_GENERATION_RANGES: Record<number, PokemonGenerationRange> = {

@@ -39,5 +39,5 @@ loading-overlay(:loading="loading")
             img.w-12(src="/icons/retry-arrow.svg")
 </template>
 
-<script lang="ts" src="./quiz.ts"/>
-<style lang="sass" scoped src="./quiz.sass"/>
+<script lang="ts" src="./quiz.ts" />
+<style lang="sass" scoped src="./quiz.sass" />
